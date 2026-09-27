@@ -160,8 +160,8 @@ def episode(case_id, arm, client, directory, max_steps=10, base_model=BASE_MODEL
 
 def manifest(cases, repeats, max_steps, base_model=BASE_MODEL):
     skill_path = ROOT / "skills" / "jev" / "SKILL.md"
-    skill = skill_path.read_text() if skill_path.exists() else ""
-    sources = {name: (ROOT / name).read_text() for name in
+    skill = skill_path.read_text(encoding="utf-8") if skill_path.exists() else ""
+    sources = {name: (ROOT / name).read_text(encoding="utf-8") for name in
                ("evals/run.py", "evals/scenarios.py", "skills/jev/scripts/jev.py")}
     return {"created_at": datetime.now(timezone.utc).isoformat(), "cases": cases, "repeats": repeats,
         "max_steps": max_steps, "checkpoints": CHECKPOINTS, "base_model": base_model,

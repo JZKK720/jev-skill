@@ -16,14 +16,14 @@ class SetupTests(unittest.TestCase):
     def test_native_key_examples_are_visible_and_pitfalls_are_linked(self):
         root = Path(__file__).resolve().parents[1]
         for name in ("docs/installation.md", "skills/jev/references/setup.md"):
-            text = (root / name).read_text()
+            text = (root / name).read_text(encoding="utf-8")
             self.assertIn('export TYPESAFE_API_KEY=', text, name)
             self.assertIn('--provider typesafe --dry-run', text, name)
         for name in ("README.md", "README.zh.md"):
-            text = (root / name).read_text()
+            text = (root / name).read_text(encoding="utf-8")
             self.assertIn('<a id="pitfalls"></a>', text)
             self.assertIn('skills/jev/references/pitfalls.md', text)
-        guide = (root / "skills/jev/references/pitfalls.md").read_text()
+        guide = (root / "skills/jev/references/pitfalls.md").read_text(encoding="utf-8")
         for term in ("repeatability", "accuracy", "relevant", "uid", "pg-jev",
                      "TYPESAFE_API_KEY", "--provider typesafe", "held-out"):
             self.assertIn(term, guide)
@@ -31,7 +31,7 @@ class SetupTests(unittest.TestCase):
     def test_setup_is_a_conversation_with_the_current_coding_agent(self):
         root = Path(__file__).resolve().parents[1]
         for name in ("README.md", "README.zh.md"):
-            text = (root / name).read_text()
+            text = (root / name).read_text(encoding="utf-8")
             setup = text.split('<a id="no-key"></a>', 1)[1].split("### ", 2)[1]
             self.assertIn("```text", setup)
             self.assertNotIn("```bash", setup)
@@ -42,7 +42,7 @@ class SetupTests(unittest.TestCase):
             for term in ("TYPESAFE_API_KEY", "--provider typesafe", "OPENROUTER_API_KEY",
                          "jev_called: false", "null", "docs/installation.md"):
                 self.assertIn(term, setup)
-        skill = (root / "skills/jev/references/setup.md").read_text()
+        skill = (root / "skills/jev/references/setup.md").read_text(encoding="utf-8")
         self.assertIn("user's own coding agent", skill)
         self.assertIn("Wait for an explicit choice", skill)
         self.assertIn("do not\nmake the user run a terminal checklist", skill)
