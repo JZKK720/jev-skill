@@ -14,7 +14,7 @@
 
 <a id="overview"></a>
 Jev 负责选择、分类和评分，Agent 负责提供证据和执行。
-这里有 **61 个项目与资料入口、5 个技能、108 个场景**，以及 14 组已记录的输入输出。
+这里有 **65 个项目与资料入口、5 个技能、108 个场景**，以及 14 组已记录的输入输出。
 
 <a id="contents"></a>
 | [项目](#projects) | [技能](#skills) | [用法](#catalog) |
@@ -91,9 +91,10 @@ Jev 负责选择、分类和评分，Agent 负责提供证据和执行。
 | Browser | [WebMCP / WindTunnel](https://github.com/nekuda-ai/WindTunnel) | 网站工具选择与浏览器评测 | 报告 |
 | Browser | [Stagehand + Jev](https://x.com/kylejeong/status/2101046888468553855) | 接进 act / observe / extract | 作者原帖 |
 | Browser | [Jev Browser Use](https://github.com/wy-coliney/jev-browser-use) | Codex 输入并验证，Jev 选控件 | README |
-| 调研 | [Jev Social](https://github.com/socai-io/jev-social) | Jev 选择受限的社交浏览器动作，SocAI 在用户已登录的 Chrome 中执行并保留来源链接证据 | README |
+| 调研 | [Jev Social](https://github.com/socai-io/jev-social) | Jev 选择受限的社交浏览器动作，socai CLI 在用户已登录的 Chrome 中执行并保留来源链接证据 | README |
 | Desktop | [Jev Desktop](https://github.com/yikangy873-gif/jev-desktop) | 已有 Codex CUA 环境里的受限控件选择 | README |
 | Agent | [Jev Codex Router](https://github.com/0xNatoshi/jev-codex-router) | 逐轮选模型档位，先看影子模式 | README |
+| Agent | [Codex Jev Router (suenot)](https://github.com/suenot/codex-jev-router) | 根据任务摘要选择 Codex 子代理模型与推理档位；本地置信度门槛未通过时回退到 Sol | README |
 | Context | [winnow](https://github.com/GhalebDweikat/winnow) | 可恢复的工具结果裁剪 | README |
 | Review | [Jev Review](https://github.com/devagrawal09/jev-review) | 分阶段代码审查与面板 | README |
 | Search | [Blink (ellipsis-dev)](https://github.com/ellipsis-dev/blink) | 按文件和目录名找代码，不等于完整审查 | README |
@@ -133,6 +134,7 @@ Jev 负责选择、分类和评分，Agent 负责提供证据和执行。
 | 本地模型 | [LFM2.5-350M-RLCD](https://huggingface.co/notnotsamuel/LFM2.5-350M-RLCD) | 小型 Liquid 决策模型变体，使用前查看模型许可。 | Model card |
 | 本地模型 | [LFM2.5-2.6B-RLCD](https://huggingface.co/monotykamary/LFM2.5-2.6B-RLCD) | 较大的 Liquid 决策模型变体，使用前查看模型许可。 | Model card |
 | 本地模型 | [Verdict / rlcd-modernbert-151m](https://github.com/Heman10x-NGU/Verdict-open-jev) | ModernBERT 决策模型，带评测和浏览器示例。 | README |
+| 本地模型 | [jevos](https://github.com/feder-cr/jev) | 只支持是非判断，兼容 Jev API；一个 1B 模型（MiniCPM）裁剪至 17 层，纯 CPU GGUF，619 MB。 | README |
 
 ### 工具与资源
 
@@ -149,6 +151,7 @@ Jev 负责选择、分类和评分，Agent 负责提供证据和执行。
 | Report | [jev-evaluation](https://github.com/willkelly/jev-evaluation) | 对抗样例、校准和批量判断实验 | 报告 |
 | Report | [PrimeLine comparison](https://primeline.cc/blog/typesafe-jev-pre-registered-test) | 任务依赖的结果，注意标签来源限制 | 报告 |
 | Report | [LangChain Jev-as-a-Judge](https://www.langchain.com/blog/jev-agent-evals-langsmith) | 比较判分一致性、质量、延迟和成本 | 报告 |
+| Report | [Jev in the Wild: A Data-Driven Analysis of the Jev Model's Functionality, Applications and Ecosystem](https://arxiv.org/abs/2609.30216) | 首个基于数据的 Jev 应用生态综述与分析：覆盖 2,170 个公开 GitHub 项目，记录早期增长、应用领域与决策用途分布。 | 论文 |
 | Methods | [HarmBench](https://github.com/centerforaisafety/HarmBench) | 分离样例生成、目标输出与评测 | 方法参考 |
 | Methods | [PAIR](https://github.com/patrickrchao/JailbreakingLLMs) | 授权迭代红队方法，不是 Jev 应用 | 方法参考 |
 | Methods | [AgentDojo](https://github.com/ethz-spylab/agentdojo) | 结合任务结果的 Agent 注入评测 | 方法参考 |
@@ -156,6 +159,7 @@ Jev 负责选择、分类和评分，Agent 负责提供证据和执行。
 | Directory | [Awesome Jev (kraayenjon)](https://github.com/kraayenjon/awesome-jev) | 项目与实现方式的配套合集 | README |
 | Directory | [Awesome Jev (Anil-matcha)](https://github.com/Anil-matcha/awesome-jev-by-typesafe) | 更多项目与社区线索 | 目录线索 |
 | Directory | [LINUX DO / QianCheng](https://linux.do/t/topic/2919004) | 带原帖链接的 39 项用途汇总 | 汇总原文 |
+| Directory | [laya.tools](https://laya.tools) | 基于开源 Jev 替代模型 Laya 的项目目录，按平台和用途浏览，附 Laya 与 Jev 对比 | 目录线索 |
 | 工具与资源 | [Awesome Jev (OmniJev)](https://github.com/OmniJev/awesome-jev-gallery) | 浏览开放模型、项目和独立评测。 | Directory |
 | 工具与资源 | [prompt2jev](https://github.com/sumleo/prompt2jev) | 把 Prompt 转成结构化问题和调用代码。 | README |
 

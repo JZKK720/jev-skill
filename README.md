@@ -14,7 +14,7 @@
 
 <a id="overview"></a>
 Jev chooses, classifies and scores. Your agent supplies evidence and takes action.
-Browse **61 projects and resources, 5 skills and 108 scenarios**, with 14 recorded input/output pairs.
+Browse **65 projects and resources, 5 skills and 108 scenarios**, with 14 recorded input/output pairs.
 
 <a id="contents"></a>
 | [Projects](#projects) | [Skills](#skills) | [Examples](#catalog) |
@@ -91,9 +91,10 @@ Community demos and an illustrated guide. Click a preview for the original; thes
 | Browser | [WebMCP / WindTunnel](https://github.com/nekuda-ai/WindTunnel) | Website-tool selection and a published browser benchmark | Report |
 | Browser | [Stagehand + Jev](https://x.com/kylejeong/status/2101046888468553855) | Jev inside act / observe / extract primitives | Author post |
 | Browser | [Jev Browser Use](https://github.com/wy-coliney/jev-browser-use) | Codex owns typing and verification; Jev picks controls | README |
-| Research | [Jev Social](https://github.com/socai-io/jev-social) | Jev chooses bounded social-browser actions; SocAI executes in the user's logged-in Chrome and keeps source-linked evidence | README |
+| Research | [Jev Social](https://github.com/socai-io/jev-social) | Jev chooses bounded social-browser actions; socai CLI executes in the user's logged-in Chrome and keeps source-linked evidence | README |
 | Desktop | [Jev Desktop](https://github.com/yikangy873-gif/jev-desktop) | Bounded controls in an existing Codex CUA runtime | README |
 | Agent | [Jev Codex Router](https://github.com/0xNatoshi/jev-codex-router) | Recommend a model tier per turn; inspect shadow mode | README |
+| Agent | [Codex Jev Router (suenot)](https://github.com/suenot/codex-jev-router) | Selects a Codex subagent model and reasoning tier from task summaries with local confidence gates; uncertain decisions fall back to Sol | README |
 | Context | [winnow](https://github.com/GhalebDweikat/winnow) | Recoverable tool-output filtering and recall stubs | README |
 | Review | [Jev Review](https://github.com/devagrawal09/jev-review) | Staged code-review judgments and dashboard | README |
 | Search | [Blink (ellipsis-dev)](https://github.com/ellipsis-dev/blink) | Explore repository file/folder names, not full review | README |
@@ -133,6 +134,7 @@ Community demos and an illustrated guide. Click a preview for the original; thes
 | Alternative | [LFM2.5-350M-RLCD](https://huggingface.co/notnotsamuel/LFM2.5-350M-RLCD) | Small Liquid-model decision variant; check its model license. | Model card |
 | Alternative | [LFM2.5-2.6B-RLCD](https://huggingface.co/monotykamary/LFM2.5-2.6B-RLCD) | Larger Liquid-model decision variant; check its model license. | Model card |
 | Alternative | [Verdict / rlcd-modernbert-151m](https://github.com/Heman10x-NGU/Verdict-open-jev) | ModernBERT decision model with evaluation and browser examples. | README |
+| Alternative | [jevos](https://github.com/feder-cr/jev) | Yes/no-only, Jev-compatible API; a 1B model (MiniCPM) cut to 17 layers, CPU-only GGUF, 619 MB. | README |
 
 ### Tools & resources
 
@@ -149,6 +151,7 @@ Community demos and an illustrated guide. Click a preview for the original; thes
 | Report | [jev-evaluation](https://github.com/willkelly/jev-evaluation) | Adversarial cases, calibration and batching experiments | Report |
 | Report | [PrimeLine comparison](https://primeline.cc/blog/typesafe-jev-pre-registered-test) | Task-dependent results with important labeling caveats | Report |
 | Report | [LangChain Jev-as-a-Judge](https://www.langchain.com/blog/jev-agent-evals-langsmith) | Judge consistency, quality, latency and cost | Report |
+| Report | [Jev in the Wild: A Data-Driven Analysis of the Jev Model's Functionality, Applications and Ecosystem](https://arxiv.org/abs/2609.30216) | First data-driven Jev application ecosystem survey and analysis: 2,170 public GitHub projects, early growth, application domains, and decision-use patterns. | Paper |
 | Methods | [HarmBench](https://github.com/centerforaisafety/HarmBench) | Separate test generation, target completion and scoring | Method |
 | Methods | [PAIR](https://github.com/patrickrchao/JailbreakingLLMs) | Authorized iterative red-team methodology, not a Jev app | Method |
 | Methods | [AgentDojo](https://github.com/ethz-spylab/agentdojo) | Agent injection evaluation with task outcomes | Method |
@@ -156,6 +159,7 @@ Community demos and an illustrated guide. Click a preview for the original; thes
 | Directory | [Awesome Jev (kraayenjon)](https://github.com/kraayenjon/awesome-jev) | Companion list of projects and implementation patterns | README |
 | Directory | [Awesome Jev (Anil-matcha)](https://github.com/Anil-matcha/awesome-jev-by-typesafe) | More projects and community discovery | Directory |
 | Directory | [LINUX DO / QianCheng](https://linux.do/t/topic/2919004) | 39-use-case roundup with original-post links | Roundup |
+| Directory | [laya.tools](https://laya.tools) | Projects built on Laya, the open Jev alternative, by platform and use case, plus a Laya vs Jev comparison | Directory |
 | Resource | [Awesome Jev (OmniJev)](https://github.com/OmniJev/awesome-jev-gallery) | Browse open models, projects and independent evaluations. | Directory |
 | Resource | [prompt2jev](https://github.com/sumleo/prompt2jev) | Turn a prompt into typed questions and calling code. | README |
 
