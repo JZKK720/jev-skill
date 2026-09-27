@@ -24,6 +24,15 @@ Jev 负责选择、分类和评分，Agent 负责提供证据和执行。
 第一次来？[把安装提示词发给 Agent](#install)。已有安装？[让 Agent 更新](#update)。
 [更新记录](docs/updates/README.md) · [贡献指南](CONTRIBUTING.md#中文)
 
+<a id="contributors"></a>
+### 🙌 贡献者
+
+感谢每一位贡献者。
+
+<a href="https://github.com/wuyoscar/jev-skill/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=wuyoscar/jev-skill" alt="Contributors" />
+</a>
+
 <a id="projects"></a>
 ## 项目
 
@@ -3108,12 +3117,3 @@ Jev 本身不浏览、不执行工具，也不生成自由文本。判断输入�
 - [9 个场景 API 示例](evals/SCENARIO_EXAMPLES.md)：记录了 8 个场景技能和声音编排的实际返回，没有执行宿主动作。
 - [此前的 5 个真实 API 示例](evals/results/examples-2026-09-20.json)：保留请求/响应，是冒烟回执，不是场景准确率测试。
 - [验证与复现说明](docs/validation.md)：分别记录打包检查、离线运行，以及尚未验证的宿主边界。
-
-<a id="contributors"></a>
-### 🙌 贡献者
-
-感谢每一位贡献者。
-
-<a href="https://github.com/wuyoscar/jev-skill/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=wuyoscar/jev-skill" alt="Contributors" />
-</a>
