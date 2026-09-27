@@ -14,7 +14,7 @@
 
 <a id="overview"></a>
 Jev chooses, classifies and scores. Your agent supplies evidence and takes action.
-Browse **64 projects and resources, 5 skills and 108 scenarios**, with 14 recorded input/output pairs.
+Browse **65 projects and resources, 5 skills and 108 scenarios**, with 14 recorded input/output pairs.
 
 <a id="contents"></a>
 | [Projects](#projects) | [Skills](#skills) | [Examples](#catalog) |
@@ -134,6 +134,7 @@ Community demos and an illustrated guide. Click a preview for the original; thes
 | Alternative | [LFM2.5-350M-RLCD](https://huggingface.co/notnotsamuel/LFM2.5-350M-RLCD) | Small Liquid-model decision variant; check its model license. | Model card |
 | Alternative | [LFM2.5-2.6B-RLCD](https://huggingface.co/monotykamary/LFM2.5-2.6B-RLCD) | Larger Liquid-model decision variant; check its model license. | Model card |
 | Alternative | [Verdict / rlcd-modernbert-151m](https://github.com/Heman10x-NGU/Verdict-open-jev) | ModernBERT decision model with evaluation and browser examples. | README |
+| Alternative | [jevos](https://github.com/feder-cr/jev) | Yes/no-only, Jev-compatible API; a 1B model (MiniCPM) cut to 17 layers, CPU-only GGUF, 619 MB. | README |
 
 ### Tools & resources
 
