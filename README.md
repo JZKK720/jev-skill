@@ -24,6 +24,15 @@ Browse **65 projects and resources, 5 skills and 108 scenarios**, with 14 record
 New here? [Give the install prompt to your agent](#install). Already installed? [Ask it to update](#update).
 [Update log](docs/updates/README.md) · [Contributing](CONTRIBUTING.md)
 
+<a id="contributors"></a>
+### 🙌 Contributors
+
+Thanks to everyone who has contributed.
+
+<a href="https://github.com/wuyoscar/jev-skill/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=wuyoscar/jev-skill" alt="Contributors" />
+</a>
+
 <a id="projects"></a>
 ## Projects
 
@@ -3202,12 +3211,3 @@ Data sent for judgment goes to your selected service; use synthetic data first.
 - [Nine scenario API examples](evals/SCENARIO_EXAMPLES.md): observed answers for all eight focused skills plus voice direction; no host actions.
 - [Five earlier live API examples](evals/results/examples-2026-09-20.json): request/response smoke receipts, not scenario-level accuracy tests.
 - [Validation and reproduction](docs/validation.md): package checks, dry runs and untested host boundaries are recorded separately.
-
-<a id="contributors"></a>
-### 🙌 Contributors
-
-Thanks to everyone who has contributed.
-
-<a href="https://github.com/wuyoscar/jev-skill/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=wuyoscar/jev-skill" alt="Contributors" />
-</a>
