@@ -78,7 +78,7 @@ def regenerate(directory):
         review = result['needs_review'] if result['needs_review'] is not None else '—'
         table.append(f"| `{model['id']}` | {result['correct']}/{len(group)} | {result['valid']}/{len(group)} | {result['errors']} | {review} | {result['median_latency_seconds']:.3f} | {cost_text} |")
     dump(directory/'summary.json',summary)
-    (directory/'table.md').write_text('\n'.join(table)+'\n')
+    (directory/'table.md').write_text('\n'.join(table)+'\n', encoding='utf-8')
     return summary
 
 

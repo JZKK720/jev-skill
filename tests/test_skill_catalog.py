@@ -60,7 +60,7 @@ class SkillCatalogTests(unittest.TestCase):
                 self.assertEqual({p.parent.name for p in destination.rglob('SKILL.md')},
                                  {'jev', *SCENARIOS})
                 for doc in destination.rglob('*.md'):
-                    text = re.sub(r'```.*?```', '', doc.read_text(), flags=re.S)
+                    text = re.sub(r'```.*?```', '', doc.read_text(encoding="utf-8"), flags=re.S)
                     for link in re.findall(r'\]\(([^)\s]+)\)', text):
                         url = urlsplit(link)
                         if not url.scheme and url.path:
@@ -75,7 +75,7 @@ class SkillCatalogTests(unittest.TestCase):
                     run = subprocess.run([sys.executable,
                         str(destination / 'jev/scripts/jev.py'), 'decide', str(path), '--dry-run'],
                         cwd=tmp, env=environment, capture_output=True, text=True, check=True)
-                    self.assertEqual(json.loads(run.stdout), json.loads(path.read_text()))
+                    self.assertEqual(json.loads(run.stdout), json.loads(path.read_text(encoding="utf-8")))
                 builder = subprocess.run([sys.executable,
                     str(destination / 'jev-eval/scripts/prepare.py'),
                     str(destination / 'jev-eval/assets/transcripts.jsonl'),
@@ -85,7 +85,7 @@ class SkillCatalogTests(unittest.TestCase):
                 self.assertFalse(json.loads(builder.stdout)['target_called'])
 
     def test_migration_and_release_guidance_do_not_keep_alias_skills(self):
-        guide = (ROOT / 'docs/skill-migration.md').read_text()
+        guide = (ROOT / 'docs/skill-migration.md').read_text(encoding="utf-8")
         for name in ('jev-setup', 'jev-route', 'jev-context', 'jev-find-code',
                      'jev-code-review', 'jev-redteam', 'jev-ui', 'jev-simulation'):
             self.assertIn(f'`{name}`', guide)
@@ -93,7 +93,7 @@ class SkillCatalogTests(unittest.TestCase):
         for term in ('symlink', 'approval', 'backup', 'outside', 'verification fails'):
             self.assertIn(term, guide)
         for name in ('docs/install.md', 'docs/installation.md'):
-            text = (ROOT / name).read_text()
+            text = (ROOT / name).read_text(encoding="utf-8")
             self.assertIn('v0.2.0', text)
             self.assertIn('eleven', text)
             self.assertIn('reviewed', text)
@@ -102,21 +102,21 @@ class SkillCatalogTests(unittest.TestCase):
     def test_agent_first_update_entrypoint_and_safety_contract(self):
         url = "https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/update.md"
         for filename in ("README.md", "README.zh.md"):
-            text = (ROOT / filename).read_text()
+            text = (ROOT / filename).read_text(encoding="utf-8")
             update = text.split('<a id="update"></a>', 1)[1].split('<a id="usage"></a>', 1)[0]
             self.assertIn(url, update)
             self.assertIn("```text", update)
             self.assertIn("](docs/update.md)", update)
         for filename in ("docs/install.md", "docs/installation.md"):
-            self.assertIn("](update.md)", (ROOT / filename).read_text())
-        guide = (ROOT / "docs/update.md").read_text()
+            self.assertIn("](update.md)", (ROOT / filename).read_text(encoding="utf-8"))
+        guide = (ROOT / "docs/update.md").read_text(encoding="utf-8")
         for term in ("exact commit", "stays pinned", "local edits", "symlinks",
                      "outside all host skill-discovery", "simulation mode",
                      "same reviewed source", "--reinstall", "rollback failure",
                      "target-only names", "concurrent user work",
                      "against the installed", "No API calls", "no-op"):
             self.assertIn(term, guide)
-        setup = (ROOT / "skills/jev/references/setup.md").read_text()
+        setup = (ROOT / "skills/jev/references/setup.md").read_text(encoding="utf-8")
         self.assertIn("/blob/main/docs/update.md", setup)
 
     def test_setup_and_all_skills_keep_explicit_modes(self):
@@ -130,19 +130,19 @@ class SkillCatalogTests(unittest.TestCase):
         self.assertTrue((ROOT / "skills/jev/references/simulation.md").is_file())
 
     def test_new_collection_covers_all_supplied_roundups(self):
-        ledger = (ROOT / "skills/jev/references/intake-2026-09-21.md").read_text()
+        ledger = (ROOT / "skills/jev/references/intake-2026-09-21.md").read_text(encoding="utf-8")
         rows = re.findall(r"^\| (\d+) \|", ledger, re.M)
         self.assertEqual(len(rows), 39 + 15 + 22)
         for filename in ("README.md", "README.zh.md"):
-            text = (ROOT / filename).read_text()
+            text = (ROOT / filename).read_text(encoding="utf-8")
             section = text.split('<a id="projects"></a>', 1)[1].split('<a id="skills"></a>', 1)[0]
-            self.assertEqual(len(re.findall(r"^\| [^|]+ \| \[", section, re.M)), 65)
+            self.assertEqual(len(re.findall(r"^\| [^|]+ \| \[", section, re.M)), 66)
             self.assertIn("[Codex Jev Router (suenot)](https://github.com/suenot/codex-jev-router)", section)
             self.assertEqual(len(re.findall(r"^#### \d+\.", text, re.M)), 108)
 
     def test_overview_links_to_the_three_sections(self):
         for filename in ("README.md", "README.zh.md"):
-            text = (ROOT / filename).read_text()
+            text = (ROOT / filename).read_text(encoding="utf-8")
             top = text.split('<a id="projects"></a>', 1)[0]
             for anchor in ('projects', 'skills', 'catalog'):
                 self.assertIn(f"](#{anchor})", top)
@@ -152,12 +152,12 @@ class SkillCatalogTests(unittest.TestCase):
     def test_agent_first_installation_entrypoint(self):
         guide_url = "https://raw.githubusercontent.com/wuyoscar/jev-skill/main/docs/install.md"
         for filename in ("README.md", "README.zh.md"):
-            text = (ROOT / filename).read_text()
+            text = (ROOT / filename).read_text(encoding="utf-8")
             first_block = re.search(r"```(\w*)\n(.*?)\n```", text, re.S)
             self.assertEqual(first_block.group(1), "text")
             self.assertIn(guide_url, first_block.group(2))
             self.assertLess(text.index(guide_url), text.index('id="agent"'))
-        guide = (ROOT / "docs/install.md").read_text()
+        guide = (ROOT / "docs/install.md").read_text(encoding="utf-8")
         for name in ("jev", *SCENARIOS):
             self.assertIn(f"`{name}`", guide)
         for requirement in ("OPENROUTER_API_KEY", "--dry-run", "v0.2.0"):
@@ -173,7 +173,7 @@ class SkillCatalogTests(unittest.TestCase):
 
     def test_readme_usage_explains_agent_prompts_and_manual_calls(self):
         for filename in ("README.md", "README.zh.md"):
-            text = (ROOT / filename).read_text()
+            text = (ROOT / filename).read_text(encoding="utf-8")
             self.assertTrue('<a id="usage"></a>' in text, filename)
             usage = text.split('<a id="usage"></a>', 1)[1].split('<a id="context-tips"></a>', 1)[0]
             self.assertEqual(len(re.findall(r"```text\n", usage)), 5)
@@ -189,11 +189,11 @@ class SkillCatalogTests(unittest.TestCase):
 
     def test_readme_input_can_be_saved_and_dry_run_as_documented(self):
         for filename in ("README.md", "README.zh.md"):
-            text = (ROOT / filename).read_text()
+            text = (ROOT / filename).read_text(encoding="utf-8")
             match = re.search(r"<!-- request: .*? -->\s*```json\n(.*?)\n```", text, re.S)
             with tempfile.TemporaryDirectory() as tmp:
                 request = Path(tmp) / "request.json"
-                request.write_text(match.group(1))
+                request.write_text(match.group(1), encoding="utf-8")
                 output = io.StringIO()
                 with patch.dict("os.environ", {}, clear=True), \
                         patch("urllib.request.urlopen", side_effect=AssertionError("network")), \
@@ -259,7 +259,7 @@ class SkillCatalogTests(unittest.TestCase):
 
     def test_readmes_expose_each_scenario(self):
         for filename in ("README.md", "README.zh.md"):
-            text = (ROOT / filename).read_text()
+            text = (ROOT / filename).read_text(encoding="utf-8")
             for name in SCENARIOS:
                 with self.subTest(readme=filename, skill=name):
                     self.assertIn(f"skills/{name}/SKILL.md", text)
@@ -269,14 +269,14 @@ class SkillCatalogTests(unittest.TestCase):
         references = ROOT / "skills/jev/references"
         recipe_ids = set()
         for filename in ("agent-recipes.md", "human-recipes.md"):
-            recipe_ids.update(re.findall(r"\*\*([AH]\d{2}) ·", (references / filename).read_text()))
+            recipe_ids.update(re.findall(r"\*\*([AH]\d{2}) ·", (references / filename).read_text(encoding="utf-8")))
         pattern_ids = {
             f"M{int(number):02d}" for number in re.findall(
-                r"^## (\d+)\.", (references / "implementation-patterns.md").read_text(), re.M
+                r"^## (\d+)\.", (references / "implementation-patterns.md").read_text(encoding="utf-8"), re.M
             )
         }
         social_ids = {f"X{number:02d}" for number in range(1, 8)}
-        readmes = [(ROOT / name).read_text() for name in ("README.md", "README.zh.md")]
+        readmes = [(ROOT / name).read_text(encoding="utf-8") for name in ("README.md", "README.zh.md")]
         for text in readmes:
             coverage = re.findall(r"<!-- covers: (.*?) -->", text)
             covered = set(" ".join(coverage).split())
@@ -292,7 +292,7 @@ class SkillCatalogTests(unittest.TestCase):
 
     def test_readme_counts_and_numbering_match_the_catalog(self):
         for filename in ("README.md", "README.zh.md"):
-            text = (ROOT / filename).read_text()
+            text = (ROOT / filename).read_text(encoding="utf-8")
             numbers = [int(n) for n in re.findall(r"^#### (\d+)\.", text, re.M)]
             self.assertEqual(numbers, list(range(1, len(numbers) + 1)))
             badge = re.search(r"/badge/scenarios-(\d+)-", text)
@@ -305,7 +305,7 @@ class SkillCatalogTests(unittest.TestCase):
 
     def test_showcase_has_attributed_previews_and_existing_local_media(self):
         for filename in ("README.md", "README.zh.md"):
-            text = (ROOT / filename).read_text()
+            text = (ROOT / filename).read_text(encoding="utf-8")
             gallery = text.split('<a id="showcase"></a>', 1)[1].split(
                 '<a id="install"></a>', 1
             )[0]
@@ -315,7 +315,7 @@ class SkillCatalogTests(unittest.TestCase):
                 if not source.startswith("https://"):
                     self.assertTrue((ROOT / source).is_file(), source)
             self.assertIn("docs/media/README.md", gallery)
-            credits = (ROOT / "docs/media/README.md").read_text()
+            credits = (ROOT / "docs/media/README.md").read_text(encoding="utf-8")
             for repo, revision in (
                 ("devagrawal09/jev-review", "31f89602797fb7bea007f8a480bf368bf564954e"),
                 ("davila7/jev-explained", "5cbe35e04609112be77b1bd447bd79b3bde7980b"),
@@ -328,7 +328,7 @@ class SkillCatalogTests(unittest.TestCase):
 
     def test_daily_additions_are_visible_in_both_languages(self):
         for filename in ("README.md", "README.zh.md"):
-            text = (ROOT / filename).read_text()
+            text = (ROOT / filename).read_text(encoding="utf-8")
             for number in range(1, 6):
                 self.assertIn(f"<!-- covers: D{number:02d} -->", text)
             for anchor in ("sc-semantic-find", "sc-sponsor-skip", "sc-story-sensors",
@@ -338,11 +338,11 @@ class SkillCatalogTests(unittest.TestCase):
     def test_readme_inputs_match_saved_requests_and_pair_with_outputs(self):
         expected = {}
         for filename in ("examples-2026-09-20.json", "scenario-smoke-2026-09-20.json"):
-            receipt = json.loads((ROOT / "evals/results" / filename).read_text())
+            receipt = json.loads((ROOT / "evals/results" / filename).read_text(encoding="utf-8"))
             for result in receipt["results"]:
                 expected[f"{filename}#{result['example']}"] = result["request"]
         for filename in ("README.md", "README.zh.md"):
-            text = (ROOT / filename).read_text()
+            text = (ROOT / filename).read_text(encoding="utf-8")
             shown = re.findall(
                 r"<!-- request: (.*?) -->\s*```json\n(.*?)\n```", text, re.S
             )
@@ -360,14 +360,14 @@ class SkillCatalogTests(unittest.TestCase):
     def test_readme_outputs_match_all_saved_example_receipts(self):
         expected = {}
         for filename in ("examples-2026-09-20.json", "scenario-smoke-2026-09-20.json"):
-            receipt = json.loads((ROOT / "evals/results" / filename).read_text())
+            receipt = json.loads((ROOT / "evals/results" / filename).read_text(encoding="utf-8"))
             for result in receipt["results"]:
                 expected[f"{filename}#{result['example']}"] = {
                     question: {key: value for key, value in decision.items() if key != "levels"}
                     for question, decision in result["decisions"].items()
                 }
         for filename in ("README.md", "README.zh.md"):
-            text = (ROOT / filename).read_text()
+            text = (ROOT / filename).read_text(encoding="utf-8")
             shown = re.findall(
                 r"<!-- receipt: (.*?) -->\s*```json\n(.*?)\n```", text, re.S
             )

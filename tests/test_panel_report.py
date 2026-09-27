@@ -73,14 +73,14 @@ class ReportTests(unittest.TestCase):
         for source in (root/'docs/experiments/model-panel/runs').iterdir():
             with tempfile.TemporaryDirectory() as tmp:
                 target=Path(tmp)/'run';shutil.copytree(source,target)
-                original=(target/'summary.json').read_text()
-                table=(target/'table.md').read_text()
+                original=(target/'summary.json').read_text(encoding="utf-8")
+                table=(target/'table.md').read_text(encoding="utf-8")
                 report.regenerate(target)
-                self.assert_summary_equal(json.loads((target/'summary.json').read_text()),json.loads(original))
-                self.assertEqual((target/'table.md').read_text(),table)
-                self.assertIn(table.strip(),(target/'README.md').read_text())
+                self.assert_summary_equal(json.loads((target/'summary.json').read_text(encoding="utf-8")),json.loads(original))
+                self.assertEqual((target/'table.md').read_text(encoding="utf-8"),table)
+                self.assertIn(table.strip(),(target/'README.md').read_text(encoding="utf-8"))
         for path in (root/'docs/experiments/model-panel').rglob('*.md'):
-            for link in re.findall(r'\]\(([^)]+)\)',path.read_text()):
+            for link in re.findall(r'\]\(([^)]+)\)',path.read_text(encoding="utf-8")):
                 if '://' not in link and not link.startswith('#'):
                     self.assertTrue((path.parent/link.split('#')[0]).exists(),f'{path}: {link}')
-        self.assertIn('*.sha256',(root/'MANIFEST.in').read_text())
+        self.assertIn('*.sha256',(root/'MANIFEST.in').read_text(encoding="utf-8"))
