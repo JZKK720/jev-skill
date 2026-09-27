@@ -14,7 +14,7 @@
 
 <a id="overview"></a>
 Jev 负责选择、分类和评分，Agent 负责提供证据和执行。
-这里有 **65 个项目与资料入口、5 个技能、108 个场景**，以及 14 组已记录的输入输出。
+这里有 **66 个项目与资料入口、5 个技能、108 个场景**，以及 14 组已记录的输入输出。
 
 <a id="contents"></a>
 | [项目](#projects) | [技能](#skills) | [用法](#catalog) |
@@ -117,6 +117,7 @@ Jev 负责选择、分类和评分，Agent 负责提供证据和执行。
 | Search | [JevPDF](https://github.com/kylemclaren/jevpdf) | 用自己的话问 PDF，每行一个 Noul，高亮匹配的行 | README |
 | Research | [1kpapers](https://www.1kpapers.com/) | 论文浏览：生成模型写摘要，Jev 选主题 | 目录线索 |
 | Inbox | [500 / 1,500-email demos](https://madewithjev.com/builds/inbox-triage-1500-emails) | 批量邮件分类，吞吐量不代表准确率 | 目录线索 |
+| Messaging | [Jev Chat Assistant](https://github.com/jev-chat/jev-chat-jarvis) | 安卓悬浮窗：Jev 判断 QQ / X / 飞书当前对话的意图、危险等级和下一步动作，并给 3 条起草好的候选回复排序；应用只填入、不代发 | README |
 | Content | [724-ad teardown](https://x.com/TheMattBerman/status/2100654891756589230) | 每条广告多维判断，再汇总对比 | 作者原帖 |
 | Content | [SuperX draft scoring](https://x.com/robj3d3/status/2100722975645598191) | 用标准审稿，不保证传播效果 | 目录线索 |
 | Video | [Sponsor Skipper](https://github.com/trungdq88/youtube-sponsor-detection) | 把转写窗口变成赞助口播时间段 | README |
