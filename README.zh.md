@@ -29,9 +29,20 @@ Jev 负责选择、分类和评分，Agent 负责提供证据和执行。
 
 感谢每一位贡献者。
 
-<a href="https://github.com/wuyoscar/jev-skill/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=wuyoscar/jev-skill" alt="Contributors" />
-</a>
+<!-- contributors:start -->
+<a href="https://github.com/wuyoscar" title="wuyoscar"><img src="https://avatars.githubusercontent.com/u/72287536?v=4&s=96" width="48" height="48" alt="wuyoscar" /></a>
+<a href="https://github.com/claude" title="claude"><img src="https://avatars.githubusercontent.com/u/81847?v=4&s=96" width="48" height="48" alt="claude" /></a>
+<a href="https://github.com/dajiaohuang" title="dajiaohuang"><img src="https://avatars.githubusercontent.com/u/108231307?v=4&s=96" width="48" height="48" alt="dajiaohuang" /></a>
+<a href="https://github.com/feder-cr" title="feder-cr"><img src="https://avatars.githubusercontent.com/u/85809106?v=4&s=96" width="48" height="48" alt="feder-cr" /></a>
+<a href="https://github.com/Finderchangchang" title="Finderchangchang"><img src="https://avatars.githubusercontent.com/u/7477876?v=4&s=96" width="48" height="48" alt="Finderchangchang" /></a>
+<a href="https://github.com/Garfielk" title="Garfielk"><img src="https://avatars.githubusercontent.com/u/10264863?v=4&s=96" width="48" height="48" alt="Garfielk" /></a>
+<a href="https://github.com/IRONICBo" title="IRONICBo"><img src="https://avatars.githubusercontent.com/u/47499836?v=4&s=96" width="48" height="48" alt="IRONICBo" /></a>
+<a href="https://github.com/kuishou68" title="kuishou68"><img src="https://avatars.githubusercontent.com/u/54054995?v=4&s=96" width="48" height="48" alt="kuishou68" /></a>
+<a href="https://github.com/kylemclaren" title="kylemclaren"><img src="https://avatars.githubusercontent.com/u/3727384?v=4&s=96" width="48" height="48" alt="kylemclaren" /></a>
+<a href="https://github.com/linggm3" title="linggm3"><img src="https://avatars.githubusercontent.com/u/109196306?v=4&s=96" width="48" height="48" alt="linggm3" /></a>
+<a href="https://github.com/Nedomas" title="Nedomas"><img src="https://avatars.githubusercontent.com/u/1877286?v=4&s=96" width="48" height="48" alt="Nedomas" /></a>
+<a href="https://github.com/Negmus" title="Negmus"><img src="https://avatars.githubusercontent.com/u/19214491?v=4&s=96" width="48" height="48" alt="Negmus" /></a>
+<!-- contributors:end -->
 
 <a id="projects"></a>
 ## 项目
