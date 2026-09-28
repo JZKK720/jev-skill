@@ -25,6 +25,13 @@ maintainer instead, when a PR does any of the following:
 Catalog entries that link to real open-source projects, papers or established
 sites are reviewed normally: verify the link, the description and both READMEs.
 
+## Writing
+
+Delegate all user-facing prose to the `writer` subagent in `.claude/agents/writer.md`:
+PR titles and descriptions, replies on PRs and issues, README and CONTRIBUTING text,
+catalog descriptions in both READMEs, docs and update-log entries. Give it the facts
+and the destination, review what it returns, then post or commit it.
+
 ## Checks
 
 ```bash
