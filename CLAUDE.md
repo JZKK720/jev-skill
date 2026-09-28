@@ -32,6 +32,12 @@ PR titles and descriptions, replies on PRs and issues, README and CONTRIBUTING t
 catalog descriptions in both READMEs, docs and update-log entries. Give it the facts
 and the destination, review what it returns, then post or commit it.
 
+## Attribution
+
+The maintainer does not want AI attribution in this repository. Do not add
+`Co-Authored-By`, `Claude-Session` or "Generated with Claude Code" lines to
+commit messages or PR descriptions.
+
 ## Checks
 
 ```bash
