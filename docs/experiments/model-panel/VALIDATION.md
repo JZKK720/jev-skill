@@ -23,4 +23,4 @@ Independent reviewer: **0 remaining findings in scope** after adding the generat
 
 Remote cleanup removed only `codex/agent-update-guide`, `codex/jev-followups` and `codex/six-skill-entrypoints`: all had zero commits outside main and no open PR. `codex/triage-smoke-test` was retained because commit `827c038` is not in main; active PR #8 was retained.
 
-Version0.2.1 is a candidate. [Publication after user merge](RELEASE.md); no tag, Release or self-merge performed.
+Version 0.2.1 is a candidate. [Publication after user merge](RELEASE.md); no tag, Release or self-merge performed.
